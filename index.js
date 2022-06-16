@@ -41,7 +41,7 @@ app.use('/api/auth',require('./routes/auth'));
 
 
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'ObligatorioSeguridad', 'build', 'index.html'));
+    res.sendFile(path.resolve(__dirname, 'obligatorio-seguridad-front', 'build', 'index.html'));
   });
 
 

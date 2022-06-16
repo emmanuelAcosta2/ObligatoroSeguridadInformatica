@@ -13,7 +13,11 @@ const UsuarioSchema = Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    roles : [{
+        type: Schema.Types.ObjectId,
+        ref: 'Rol'
+    }]
 });
 
 
