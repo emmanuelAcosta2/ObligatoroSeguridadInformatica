@@ -12,7 +12,6 @@ const { validarJWT } = require("../middlewares/validar-jwt");
 
 const router = Router();
 
-//Crear usuario
 router.get("/image-admin", validarJWT, getImageAdmin);
 router.get("/image-student", validarJWT, getImageStudent);
 

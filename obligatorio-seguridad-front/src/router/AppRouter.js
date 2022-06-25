@@ -17,7 +17,6 @@ import { Admin } from "../components/pages/Admin";
 let isAdmin = process.env.REACT_APP_ROL_ESTUDIANTE;
 export const AppRouter = () => {
 
-  //TODO: No se debería redirigir a Mantenimiento Ganadero, deberíamos redirigir a un HomePage para que el usuario haga lo que se le plazca.
   const dispatch = useDispatch();
   const { checking, uid, roles } = useSelector((state) => state.auth);
 
@@ -32,25 +31,25 @@ export const AppRouter = () => {
   return (
     <BrowserRouter >
       <Routes>
- 
+
 
         <Route
           path="/*"
           element={
-            <PrivateRoute isAuth={!!uid} roles = {roles}>
-              
-              
+            <PrivateRoute isAuth={!!uid} roles={roles}>
+
+
               {console.log(roles)}
-              {roles !== undefined && roles.includes(process.env.REACT_APP_ROL_ADMIN) ? (<Admin/>) : (<Estudiante/>)}
+              {roles !== undefined && roles.includes(process.env.REACT_APP_ROL_ADMIN) ? (<Admin />) : (<Estudiante />)}
             </PrivateRoute>
           }
         />
-        
-               <Route
+
+        <Route
           path="/login"
           element={
             <PublicRoute isAuth={!!uid} >
-              <LoginScreen/>
+              <LoginScreen />
             </PublicRoute>
           }
         />
