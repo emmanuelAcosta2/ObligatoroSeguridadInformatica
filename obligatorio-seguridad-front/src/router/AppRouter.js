@@ -8,17 +8,19 @@ import {
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { LoginScreen } from "../auth/LoginScreen";
+import { LoginScreen } from "../components/auth/LoginScreen";
+import { startChecking } from "../actions/auth";
 import { PublicRoute } from "./PublicRoute";
 import { PrivateRoute } from "./PrivateRoute";
-import { startChecking } from "../actions/auth";
-
+import { Estudiante } from "../components/pages/Estudiante";
+import { Admin } from "../components/pages/Admin";
+let isAdmin = process.env.REACT_APP_ROL_ESTUDIANTE;
 export const AppRouter = () => {
 
-
+  //TODO: No se debería redirigir a Mantenimiento Ganadero, deberíamos redirigir a un HomePage para que el usuario haga lo que se le plazca.
   const dispatch = useDispatch();
-  const { checking, uid} = useSelector((state) => state.auth);
-  
+  const { checking, uid, roles } = useSelector((state) => state.auth);
+
   useEffect(() => {
     dispatch(startChecking());
   }, [dispatch]);
@@ -35,9 +37,11 @@ export const AppRouter = () => {
         <Route
           path="/*"
           element={
-            <PrivateRoute isAuth={!!uid} allowedRoles={"estudiante"}>
-              <h1>Caca</h1>
-            
+            <PrivateRoute isAuth={!!uid} roles = {roles}>
+              
+              
+              {console.log(roles)}
+              {roles !== undefined && roles.includes(process.env.REACT_APP_ROL_ADMIN) ? (<Admin/>) : (<Estudiante/>)}
             </PrivateRoute>
           }
         />

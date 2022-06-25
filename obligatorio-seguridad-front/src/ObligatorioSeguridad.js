@@ -1,8 +1,9 @@
 import { Provider } from 'react-redux'
 import { store } from './store/store'
 import { AppRouter } from './router/AppRouter';
+import './styles/App.scss';
 
-function Obligatorio() {
+function ObligatorioSeguridad() {
     return (
         <Provider store={store}>
             <AppRouter/>
@@ -10,4 +11,4 @@ function Obligatorio() {
     )
 }
 
-export default Obligatorio
+export default ObligatorioSeguridad
