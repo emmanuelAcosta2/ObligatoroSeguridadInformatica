@@ -9,7 +9,7 @@ const path = require('path');
 const app = express();
 
     // Exprees will serve up production assets
-    app.use(express.static('./ProyectoGestionGanadera/build'));
+    //app.use(express.static('./ProyectoGestionGanadera/build'));
   
     // Express serve up index.html file if it doesn't recognize route
     
