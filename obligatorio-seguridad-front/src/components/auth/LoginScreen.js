@@ -66,6 +66,7 @@ export const LoginScreen = () => {
                                 name="lPassword"
                                 value={ lPassword }
                                 onChange={ handleLoginInputChange }
+                                
                             />
                         </div>
                         <div className="form-group">
@@ -109,6 +110,7 @@ export const LoginScreen = () => {
                                 name="rPassword1"
                                 value={ rPassword1 }
                                 onChange={ handleRegisterInputChange }
+                                minLength={12}
                             />
                         </div>
 
@@ -120,6 +122,7 @@ export const LoginScreen = () => {
                                 name="rPassword2"
                                 value={ rPassword2 }
                                 onChange={ handleRegisterInputChange }
+                                minLength={12}
                             />
                         </div>
 
