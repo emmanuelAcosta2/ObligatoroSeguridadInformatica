@@ -18,12 +18,12 @@ const validarJWT = (req, res = response, next) => {
             token,
             process.env.SECRET_JWT_SEED
         );
-        console.log(roles);
+        
 
         req.uid = uid;
         req.name = name;
         req.roles = roles;
-        console.log(roles);
+        
 
 
     } catch (error) {

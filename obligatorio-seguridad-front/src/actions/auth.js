@@ -15,9 +15,9 @@ export const startLogin = ( email, password ) => {
         const body = await resp.json();
 
         if( body.ok ) {
-            console.log("VA EL TOKEN");
-            console.log(parseJwt(body.token));
-            console.log("VA EL TOKEN");
+            
+            
+            
             localStorage.setItem('token', body.token );
             localStorage.setItem('token-init-date', new Date().getTime() );
 
@@ -43,11 +43,11 @@ export const startRegister = ( email, password, name ) => {
         if( body.ok ) {
             localStorage.setItem('token', body.token );
             localStorage.setItem('token-init-date', new Date().getTime() );
-
+            
             dispatch( login({
                 uid: body.uid,
                 name: body.name,
-                roles: parseJwt(body.token).roles
+                roles: [parseJwt(body.token).roles]
             }) )
         } else {
             Swal.fire('Error', body.msg, 'error');
@@ -70,7 +70,7 @@ export const startChecking = () => {
             dispatch( login({
                 uid: body.uid,
                 name: body.name,
-                roles: parseJwt(body.token).roles
+                roles: [parseJwt(body.token).roles]
             }) )
         } else {
             dispatch( checkingFinish() );

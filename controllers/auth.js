@@ -26,7 +26,8 @@ const crearUsuario = async(req, res = response ) => {
         let rol = "estudiante";
         let roles = await Rol.findOne({ rol });
         await roles.save();
-        usuario.roles = roles;
+        
+        usuario.roles = [roles];
 
         await usuario.save();
 

@@ -39,7 +39,7 @@ export const AppRouter = () => {
             <PrivateRoute isAuth={!!uid} roles={roles}>
 
 
-              {console.log(roles)}
+              
               {roles !== undefined && roles.includes(process.env.REACT_APP_ROL_ADMIN) ? (<Admin />) : (<Estudiante />)}
             </PrivateRoute>
           }

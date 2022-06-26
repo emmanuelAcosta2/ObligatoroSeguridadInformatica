@@ -23,7 +23,6 @@ export const Estudiante = () => {
         }
         const responseBlob = await response.blob();
         const src = URL.createObjectURL(responseBlob);
-        console.log(src);
         setImageStudentSrc(src)
         setImageStudent(true)
     }
