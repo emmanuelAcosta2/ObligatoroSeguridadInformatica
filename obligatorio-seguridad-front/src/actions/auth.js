@@ -47,7 +47,7 @@ export const startRegister = ( email, password, name ) => {
             dispatch( login({
                 uid: body.uid,
                 name: body.name,
-                roles: [parseJwt(body.token).roles]
+                roles: parseJwt(body.token).roles
             }) )
         } else {
             Swal.fire('Error', body.msg, 'error');
@@ -70,7 +70,7 @@ export const startChecking = () => {
             dispatch( login({
                 uid: body.uid,
                 name: body.name,
-                roles: [parseJwt(body.token).roles]
+                roles: parseJwt(body.token).roles
             }) )
         } else {
             dispatch( checkingFinish() );
